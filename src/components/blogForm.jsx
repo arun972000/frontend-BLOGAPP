@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import { URL } from '../../Url.js';
 
-const BlogForm = () => {
+const BlogForm = ({blogdata}) => {
     const [showModal, setShowModal] = useState(false);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -19,6 +19,7 @@ const BlogForm = () => {
             content,
             image,
         };
+        
         const postData = async () => {
             try {
                 await axios.post(`${URL}create`, newBlog)
@@ -28,11 +29,11 @@ const BlogForm = () => {
         }
 
         postData();
+        blogdata();
         setTitle('');
         setContent('');
         setImage('');
         handleCloseModal();
-        window.location.reload();
     };
 
     return (
