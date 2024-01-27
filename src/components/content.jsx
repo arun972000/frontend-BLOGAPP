@@ -32,7 +32,7 @@ const ContentDisplay = () => {
 
     return (
         <Card style={{ margin: '20px 20px' }}>
-            <Card.Img variant="top" src={blog.image} />
+            <Card.Img variant="top" src={blog.image} style={{ height: '200px', objectFit: 'cover' }} />
             <Card.Body>
                 <Card.Title>{blog.title}</Card.Title>
                 <Card.Text>{blog.content}</Card.Text>
